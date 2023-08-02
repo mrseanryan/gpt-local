@@ -4,6 +4,11 @@ Local LLM for GPT (llama 2 or dolly or gpt etc.) via Python - using the excellen
 
 This is basically a wrapper for quickly setting up a local LLM.
 
+## What is GPT ?
+
+*Generative Pre-trained Transformers, commonly known as GPT, are a family of neural network models that uses the transformer architecture and is a key advancement in artificial intelligence (AI) powering generative AI applications such as ChatGPT. GPT models give applications the ability to create human-like text and content (images, music, and more), and answer questions in a conversational manner.*
+
+
 ## Usage
 
 ```
@@ -30,7 +35,7 @@ How can I help you? [press ENTER to exit] >>
 
 1. Download a compatible model. To know what model types are supported, see the [ctransformers](https://github.com/marella/ctransformers) project.
 
-Quality models are available at hugging face - see (TheBloke)[https://huggingface.co/TheBloke].
+Quality models are available at hugging face - see [TheBloke](https://huggingface.co/TheBloke).
 
 Example: https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/resolve/main/llama-2-13b-chat.ggmlv3.q4_0.bin
 
@@ -52,6 +57,7 @@ note: This test assumes that the model is located under ~/Downloads/model.
 
 - Python 3
 - pip3
+- OS: Unix - Tested on Ubuntu
 
 ```
 pip install ctransformers
