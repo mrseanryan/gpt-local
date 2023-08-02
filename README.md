@@ -21,7 +21,7 @@ OR
 python3 local-llama2.py <path_to_model> <model_type> <prompt>
 ```
 
-Output:
+Example Output:
 
 ```
 AI model: /home/sean/Downloads/models/llama-2-13b-chat.ggmlv3.q4_0.bin [llama]
@@ -45,12 +45,22 @@ OR via bash:
 ./download-llama-2-13B-model.sh
 ```
 
-2. Send a prompt to the model
+2. Load the model and send it a prompt
 
 note: This test assumes that the model is located under ~/Downloads/model.
 
 ```
 ./test.sh
+```
+
+Output:
+
+```
+AI model: /home/sean/Downloads/models/llama-2-13b-chat.ggmlv3.q4_0.bin [llama]
+>> If Mary is faster than Joe and Sam is slower than Mary, then who is the fastest?
+
+The answer is Mary.
+How can I help you? [press ENTER to exit] >>
 ```
 
 ## Dependencies
@@ -62,6 +72,49 @@ note: This test assumes that the model is located under ~/Downloads/model.
 ```
 pip install ctransformers
 ```
+
+## Alternatives to ctransformers
+
+### [Alternative 1] (more complicated to setup)(has nice web user interface) Python web UI via pytorch and text-generation-webui
+
+These are some rough notes, taken from [YouTube](https://www.youtube.com/watch?v=k2FHUP0krqg&ab_channel=MatthewBerman) - thanks to the guy who made that video! See also the [gist](https://gist.github.com/mberman84/45545e48040ef6aafb6a1cb3442edb83).
+
+1. install conda (package manager)
+2. use conda to install:
+
+```
+conda create -n textgen python=3.10.9
+conda activate textgen
+```
+
+3. install pytorch:
+
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+
+git clone https://github.com/oobabooga/text-generation-webui
+
+cd text-generation-webui
+
+pip install -r requirements.txt
+
+python server.py
+```
+4. Download a model
+
+Example: https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML
+
+5. In the web UI: refresh the model list
+
+6. In the web UI: load the model
+
+7. In the web UI: switch to chat mode
+
+### [Alternative 2] C++ (better performance, harder to customize)
+
+https://replicate.com/blog/run-llama-locally
+
+note: make sure you pick the correct script for your OS!
 
 # References
 
